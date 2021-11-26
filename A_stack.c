@@ -1,3 +1,7 @@
+							'''STACK IMPLEMENTATION
+							   CREATED ON 25.11.2021
+							   BY @AnushElango'''
+
 #include<stdio.h>
 #include<stdlib.h>
 

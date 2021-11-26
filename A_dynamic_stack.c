@@ -1,4 +1,4 @@
-                ''' DYNAMIC STACK IMPLEMENTATION USING STRUCTURE '''
+                '''DYNAMIC STACK IMPLEMENTATION USING STRUCTURE'''
 
 
 #include<stdio.h>

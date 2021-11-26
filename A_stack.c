@@ -1,4 +1,4 @@
-								'''STACK IMPLEMENTATION'''
+								''' STACK IMPLEMENTATION '''
 	
 #include<stdio.h>
 #include<stdlib.h>

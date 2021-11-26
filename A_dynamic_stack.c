@@ -1,7 +1,4 @@
-                            ''' DYNAMIC STACK IMPLEMENTATION
-                                USING STRUCTURE. 
-                                CREATED ON 25.11.2021
-                                BY @AnushElango '''
+                ''' DYNAMIC STACK IMPLEMENTATION USING STRUCTURE '''
 
 
 #include<stdio.h>

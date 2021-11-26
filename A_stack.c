@@ -1,7 +1,5 @@
-							''' STACK IMPLEMENTATION
-							    CREATED ON 25.11.2021
-							    BY @AnushElango '''
-
+								'''STACK IMPLEMENTATION'''
+	
 #include<stdio.h>
 #include<stdlib.h>
 

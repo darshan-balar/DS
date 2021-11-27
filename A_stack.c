@@ -1,12 +1,12 @@
-								''' STACK IMPLEMENTATION '''
-	
+//''' STACK IMPLEMENTATION '''
+
 #include<stdio.h>
 #include<stdlib.h>
 
 int push(int* stack, int *top, int size);
-int pop(int* stack, int *top);
-int peek(int* stack, int top);
-int display(int *stack, int top);
+void pop(int* stack, int *top);
+void peek(int* stack, int top);
+void display(int *stack, int top);
 int isFull(int top, int size);
 int isEmpty(int top);
 
@@ -27,24 +27,24 @@ int main()
 
 	while(1)
 	{
-	
+
 		printf("\n1) Push\n2) Pop\n3) Peek\n4) Display\n5) Exit");
-	
+
 		printf("\n\nEnter the operation to be performed: ");
 		scanf("%d",&operation);
-	
+
 		switch(operation)
 		{
 			case 1: push(stack, &top, size); break;
-			
+
 			case 2: pop(stack, &top); break;
-			
+
 			case 3: peek(stack, top); break;
-			
+
 			case 4: display(stack,top); break;
-			
+
 			case 5: printf("\n\nTHANK YOU\n\n"); return 0;
-			
+
 			default: printf("\nInvalid Input\n");
 		}
 	}
@@ -74,12 +74,12 @@ int push(int* stack, int *top, int size)
 }
 
 //Poping element from the stack
-int pop(int* stack, int *top)
+void pop(int* stack, int *top)
 {
 	if(isEmpty(*top))
 	{
 		printf("\n\nPOP UNSUCCESSFUL\n\nStack is empty\n\n");
-		return 0;
+		return;
 	}
 
 	int element = stack[(*top)--];
@@ -92,12 +92,12 @@ int pop(int* stack, int *top)
 
 
 //Top most element of the stack
-int peek(int* stack, int top)
+void peek(int* stack, int top)
 {
 	if(isEmpty(top))
 	{
 		printf("\n\nPEEK UNSUCCESSFUL\n\nStack is empty\n\n");
-		return 0;
+		return;
 	}
 
 	int element = stack[top];
@@ -105,14 +105,14 @@ int peek(int* stack, int top)
 }
 
 //Display the stack
-int display(int *stack, int top)
+void display(int *stack, int top)
 {
 	if(isEmpty(top))
 	{
 		printf("\n\nDISPLAY UNSUCCESSFUL\n\nStack is empty\n\n");
-		return 0;
+		return;
 	}
-		
+
 	printf("\t\t-------");
 	for(int i = top; i >= 0; i--)
 		printf("\n\t\t|  %d  |\n\t\t-------",stack[i]);

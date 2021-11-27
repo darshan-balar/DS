@@ -1,4 +1,4 @@
-                '''DYNAMIC STACK IMPLEMENTATION USING STRUCTURE'''
+//'''DYNAMIC STACK IMPLEMENTATION USING STRUCTURE'''
 
 
 #include<stdio.h>
@@ -13,9 +13,9 @@ typedef struct stack
 }stack;
 
 int push(stack *st); //Adding element onto the stack
-int pop(stack *st); //Removing element from the stack
-int peek(stack st); //Top most element of the stack
-int display(stack *st); //Display the stack 
+void pop(stack *st); //Removing element from the stack
+void peek(stack st); //Top most element of the stack
+void display(stack *st); //Display the stack
 int isFull(stack *st); //Checking if stack is full
 int isEmpty(stack *st); //Checking if stack is empty
 
@@ -37,24 +37,24 @@ int main()
 
     while(1)
     {
-    
+
         printf("\n1) Push\n2) Pop\n3) Peek\n4) Display\n5) Exit");
-    
+
         printf("\n\nEnter the operation to be performed: ");
         scanf("%d",&operation);
-    
+
         switch(operation)
         {
             case 1: push(&st); break;
-            
+
             case 2: pop(&st); break;
-            
+
             case 3: peek(st); break;
-            
+
             case 4: display(&st); break;
-            
+
             case 5: printf("\n\nTHANK YOU\n\n"); free(st.stack); return 0;
-            
+
             default: printf("\nInvalid Input\n");
         }
 
@@ -70,7 +70,7 @@ int push(stack *st)
     if(isFull(st))
     {
         st->stack = realloc(st->stack, sizeof(int)*2*st->size);
-        
+
         if(st->stack == NULL)
             printf("\n\nMemory could not be allocated\n\n");
     }
@@ -88,12 +88,12 @@ int push(stack *st)
 }
 
 //Removing element from the stack
-int pop(stack *st)
+void pop(stack *st)
 {
     if(isEmpty(st))
     {
         printf("\n\nPOP UNSUCCESSFUL\n\nStack is empty\n\n");
-        return 0;
+        return;
     }
 
     int element = st->stack[(st->top)--];
@@ -106,12 +106,12 @@ int pop(stack *st)
 
 
 //Top most element of the stack
-int peek(stack st)
+void peek(stack st)
 {
     if(isEmpty(&st))
     {
         printf("\n\nPEEK UNSUCCESSFUL\n\nStack is empty\n\n");
-        return 0;
+        return;
     }
 
     int element = st.stack[st.top];
@@ -119,14 +119,14 @@ int peek(stack st)
 }
 
 //Display the stack
-int display(stack *st)
+void display(stack *st)
 {
     if(isEmpty(st))
     {
         printf("\n\nDISPLAY UNSUCCESSFUL\n\nStack is empty\n\n");
-        return 0;
+        return;
     }
-        
+
     printf("\t\t-------");
     for(int i = st->top; i >= 0; i--)
         printf("\n\t\t|  %d  |\n\t\t-------", st->stack[i]);
@@ -142,7 +142,7 @@ int isEmpty(stack *st)
 }
 
 //Cheking if stack is full
-int isFull(stack *st) 
+int isFull(stack *st)
 {
     if(st->top == (st->size - 1))
         return 1;

@@ -6,7 +6,7 @@ void resize(int Queue[],int *rear,int *front,int *MAXSIZE)
 
         int i;
         int *newQueue = (int *)malloc(sizeof(int)*2*(*MAXSIZE));
-        if(*front<(*MAXSIZE-1))
+        if((*front)<((*MAXSIZE)-1))
         {
             ++(*front);
             for(i=0;(*front)<(*MAXSIZE);i++,++(*front))
@@ -16,12 +16,11 @@ void resize(int Queue[],int *rear,int *front,int *MAXSIZE)
         }
         else
         {
-            for(int i=0;i<=*MAXSIZE-2;i++)
+            for(i=0;i<(*MAXSIZE)-1;i++)
                 newQueue[i]=Queue[i];
         }
-
+        *rear = i-1;
         *front = 2*(*MAXSIZE)-1;
-        *rear  = (*MAXSIZE)-2;
         *MAXSIZE = (*MAXSIZE)*2;
         free(Queue);
         Queue = newQueue;
@@ -64,7 +63,7 @@ void Show(int Queue[],int *front,int *rear,int MAXSIZE)
         for(int i=0;i<=*rear;i++)      //print the Available elements
             printf("%d ",Queue[i]);
     }
-    else if(*rear>*front)
+    else
         for(int i=*front+1;i<=*rear;i++)      //print the Available elements
             printf("%d ",Queue[i]);
 
@@ -75,7 +74,7 @@ int main()
     int MAXSIZE=1;
     char input[2];
     int *Queue = (int *)malloc(sizeof(int)*MAXSIZE);
-    int rear=0,front=0;
+    int rear=-1,front=0;
     printf("Available options: \n");
     while(1)
     {

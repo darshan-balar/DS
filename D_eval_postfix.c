@@ -5,7 +5,7 @@
 int char_to_int(char *integer,int len)    //function to convert string to integer
 {
     int result=0;
-    for(int j=len;j>=0;j--)
+    for(int j=0;j<=len;j++)
         result = result*10 + integer[j]-'0' ;
 
     return result;
@@ -100,16 +100,30 @@ int main()
         }
         else if(c>='0' && c<='9')
         {
-            while(c!=' ' && c!='\n')   //take chars of integer until space is found
+            while(c>='0' && c<='9' && c!=' ' && c!='\n')   //take chars of integer until space is found
             {
                 integer[j++]=c;
                 c=getchar();
+            }
+            if(c!=' ' && c!='\n')
+            {
+                printf("Wrong Expression, Please specify in the right format\n");
+                return 0;
             }
             if(i>=MAXSIZE-2)
                 exp = realloc(exp, sizeof(int)*(MAXSIZE *= 2));
             exp[i++] = char_to_int(integer,j-1);   //convert string to integer
             if(c=='\n')
                 break;
+        }
+        else
+        {
+            if(c!=' ')
+            {
+                printf("Wrong Expression, Please specify in the right format\n");
+                return 0;
+            }
+
         }
     }
     int result = eval(exp,i);

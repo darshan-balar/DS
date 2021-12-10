@@ -4,5 +4,5 @@ project(DS)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(DS
-        D_Dynamic_Queue.c
+        D_infix_to_postfix.c
         README.md)

@@ -90,7 +90,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "D_Dynamic_Queue.c",
+			"path" : "D_infix_to_postfix.c",
 			"sourceGroupIndex" : 0
 		},
 		{

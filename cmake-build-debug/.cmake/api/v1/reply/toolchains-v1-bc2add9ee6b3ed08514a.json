@@ -11,16 +11,16 @@
 					"includeDirectories" : 
 					[
 						"/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include",
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include",
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include",
 						"/Library/Developer/CommandLineTools/usr/include"
 					],
 					"linkDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/lib"
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/lib"
 					],
 					"linkFrameworkDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/System/Library/Frameworks"
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks"
 					],
 					"linkLibraries" : []
 				},
@@ -42,18 +42,18 @@
 				{
 					"includeDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/c++/v1",
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1",
 						"/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include",
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include",
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include",
 						"/Library/Developer/CommandLineTools/usr/include"
 					],
 					"linkDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/lib"
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/lib"
 					],
 					"linkFrameworkDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/System/Library/Frameworks"
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks"
 					],
 					"linkLibraries" : 
 					[

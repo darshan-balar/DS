@@ -72,8 +72,8 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_DS: phony || CMakeFiles/DS.dir
 
-build CMakeFiles/DS.dir/linked_stack.c.o: C_COMPILER__DS_Debug /Users/bdb/Desktop/DS/linked_stack.c || cmake_object_order_depends_target_DS
-  DEP_FILE = CMakeFiles/DS.dir/linked_stack.c.o.d
+build CMakeFiles/DS.dir/D_linked_stack.c.o: C_COMPILER__DS_Debug /Users/bdb/Desktop/DS/D_linked_stack.c || cmake_object_order_depends_target_DS
+  DEP_FILE = CMakeFiles/DS.dir/D_linked_stack.c.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/DS.dir
   OBJECT_FILE_DIR = CMakeFiles/DS.dir
@@ -86,7 +86,7 @@ build CMakeFiles/DS.dir/linked_stack.c.o: C_COMPILER__DS_Debug /Users/bdb/Deskto
 #############################################
 # Link the executable DS
 
-build DS: C_EXECUTABLE_LINKER__DS_Debug CMakeFiles/DS.dir/linked_stack.c.o
+build DS: C_EXECUTABLE_LINKER__DS_Debug CMakeFiles/DS.dir/D_linked_stack.c.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/DS.dir
   POST_BUILD = :

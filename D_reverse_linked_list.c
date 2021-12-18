@@ -76,27 +76,54 @@ void display()
     printf("\t\t\t| %d |  |\n",temp->data.number);
     printf("\t\t\t---------\n");
 }
+void reverse_linked_list(node *head)
+{
+    if(head==NULL)
+    {
+        return;
+    }
+    if(head->next == NULL)
+    {
+        printf("Nothing to reverse\n");
+        return;
+    }
+    node *temp = head->next;
+    node *next = temp->next;
+    head->next=NULL;
+    while(next!=NULL)
+    {
+        temp->next=head;
+        head = temp;
+        temp = next;
+        next = next->next;
+    }
+    temp->next=head;
+    top = temp;
+}
 int main()
 {
     printf("\t\t\t***********Welcome to the stack world************\n");
     int n;
     while(1)
     {
-        printf("\n1.push 2.pop 3.display 4.exit: ");
+        printf("\n1.push 2.pop 3.display 4.reverse_list 5.exit: ");
         scanf("%d",&n);
         switch(n)
         {
             case 1: push();
-                    printf("\t\t\tCurrent stack\n\n\n");
-                    display();
-                    break;
+                printf("\t\t\tCurrent stack\n\n\n");
+                display();
+                break;
             case 2: pop();
-                    printf("\t\t\tCurrent stack\n\n\n");
-                    display();
-                    break;
+                printf("\t\t\tCurrent stack\n\n\n");
+                display();
+                break;
             case 3: display();
-                    break;
-            case 4: return 0;
+                break;
+            case 4: reverse_linked_list(top);
+                display();
+                break;
+            case 5: return 0;
             default: printf("Wrong input\n");
         }
     }

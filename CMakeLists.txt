@@ -3,4 +3,4 @@ project(DS)
 
 set(CMAKE_CXX_STANDARD 11)
 add_executable(DS
-        linked_stack.c)
+        D_linked_stack.c)

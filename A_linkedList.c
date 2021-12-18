@@ -19,6 +19,8 @@ int delete_at_start(); //DELETE FROM THE START OF THE LIST
 int delete_at_end(); //DELETE FROM THE END OF THE LIST
 int delete_at_index(); //DELETE FROM USER SPECIFIED INDEX
 
+int reverse(); //REVERSE THE LIST
+
 int display(); //DISPLAY THE LIST
 
 struct NODE* create_node();//CREATE NODE
@@ -29,7 +31,7 @@ int main()
 	printf("\n\n\t\tLINKED LIST IMPLEMENTATION\n\n");
 	while(1)
 	{
-		printf("\n\n1) INSERT\n2) DELETE\n3) DISPLAY\n4) EXIT");
+		printf("\n\n1) INSERT\n2) DELETE\n3) REVERSE\n4) DISPLAY\n4) EXIT");
 		printf("\n\nEnter your choice: ");
 		scanf("%d",&choice);
 
@@ -37,8 +39,9 @@ int main()
 		{
 			case 1: insert(); display(); break;
 			case 2: delete(); display(); break;
-			case 3: display(); break;
-			case 4: return 0;
+			case 3: reverse(); display(); break;
+			case 4: display(); break;
+			case 5: return 0;
 			default: printf("\n\nINVALID ENTRY !!!\n\n");
 		}
 	}
@@ -245,7 +248,28 @@ int delete_at_index()
 	return 0;
 }
 	
+int reverse()
+{
+	if(start->next == NULL)
+		return printf("\n\n***PODA LOOSU***");
 
+	struct NODE *prev, *temp, *next;
+	
+	prev = NULL;
+	temp = NULL;
+	next = start;
+
+	while(next != NULL)
+	{
+		prev = temp;
+		temp = next;
+		next = next->next;
+		temp->next = prev;
+	}
+	start->next = NULL;
+	start = temp;
+	return printf("\n\nREVERSE SUCCESSFUL\n\n");
+}
 //*************************DISPLAY********************************//
 
 int display()

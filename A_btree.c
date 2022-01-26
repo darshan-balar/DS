@@ -98,6 +98,12 @@ int main()
 		}
 	}
 	
+	if(root->data == -1)
+	{
+			printf("\n\nTREE IS EMPTY\n\n");
+			return 0;
+	}
+
 	while(1)
 	{
 		int choice;
@@ -159,23 +165,23 @@ void levelorder(struct NODE *p)
 	{
 
 		p = dequeue();
+
 		
 		//LEFT CHILD
+		if(p->left)
 		{
 			printf("%d ",p->left->data);
 				
 			enqueue(p->left);
 
-			dequeue();
 		}
 
 		//RIGHT CHILD
+		if(p->right)
 		{
 			printf("%d ",p->right->data);
 			
 			enqueue(p->right);
-
-			dequeue();
 		}
 	}
 }

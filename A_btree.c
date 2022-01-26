@@ -38,6 +38,7 @@ void preorder(struct NODE *p);
 void inorder(struct NODE *p);
 void postorder(struct NODE *p);
 void levelorder(struct NODE *p);
+int numberofnodes(struct NODE *, int);
 
 
 int main()
@@ -55,6 +56,8 @@ int main()
 	printf("\n\nENTER THE ELEMENT OF ROOT NODE: ");
 	scanf("%d",&root->data);
 
+	int data = root->data;
+
 	//ENQUEUING THE ROOT INTO THE QUEUE
 	enqueue(root);
 
@@ -66,38 +69,39 @@ int main()
 		
 		//READING LEFT CHILD
 		{
-			p->left = malloc(sizeof(struct NODE));
-
-			p->left->left = p->left->right = NULL;
-
+			int left_data;
 			printf("\n\nENTER THE LEFT CHILD OF %d: ",p->data);
-			scanf("%d",&p->left->data);
-			enqueue(p->left);
+			scanf("%d",&left_data);
 
-
-			if(p->left->data == -1)
-				dequeue();
+			if(left_data != -1)
+			{
+				p->left = malloc(sizeof(struct NODE));
+				p->left->left = p->left->right = NULL;
+				p->left->data = left_data;
+				enqueue(p->left);
+			}
 		}
 
 		//READING RIGHT CHILD
 		{
-			p->right = malloc(sizeof(struct NODE));
-
-			p->right->left = p->right->right = NULL;
-
+			int right_data;
 			printf("\n\nENTER THE RIGHT CHILD OF %d: ",p->data);
-			scanf("%d",&p->right->data);
-			enqueue(p->right);
+			scanf("%d",&right_data);
 
-			if(p->right->data == -1)
-				dequeue();
+			if(right_data != -1)
+			{
+				p->right = malloc(sizeof(struct NODE));
+				p->right->left = p->right->right = NULL;
+				p->right->data = right_data;
+				enqueue(p->right);
+			}
 		}
 	}
 	
 	while(1)
 	{
 		int choice;
-		printf("\n\n1) PRE-ORDER\n2) IN-ORDER\n3) POST-ORDER\n4) LEVEL-ORDER\n5) EXIT\n\n");
+		printf("\n\n1) PRE-ORDER\n2) IN-ORDER\n3) POST-ORDER\n4) LEVEL-ORDER\n5) NO OF NODES\n 6) EXIT\n\n");
 		printf("\n\nEnter your choice: ");
 		scanf("%d",&choice);
 		printf("\n\n");
@@ -107,7 +111,8 @@ int main()
 			case 2: inorder(root);   break;
 			case 3: postorder(root); break;
 			case 4: levelorder(root);break;
-			case 5: return 0;
+			case 5: printf("\n\nNUMBER OF NODES: %d",(numberofnodes(root, 0))/2);break;
+			case 6: return 0;
 			default: printf("\n\nINVALID CHOICE\n\n");
 		}
 	}
@@ -117,8 +122,7 @@ void preorder(struct NODE *p)
 {
 	if(p)
 	{
-		if(p->data != -1)
-			printf("%d ",p->data);
+		printf("%d ",p->data);
 		preorder(p->left);
 		preorder(p->right);
 	}
@@ -129,8 +133,7 @@ void inorder(struct NODE *p)
 	if(p)
 	{
 		inorder(p->left);
-		if(p->data != -1)
-			printf("%d ",p->data);
+		printf("%d ",p->data);
 		inorder(p->right);
 	}
 }
@@ -141,8 +144,7 @@ void postorder(struct NODE *p)
 	{
 		postorder(p->left);
 		postorder(p->right);
-		if(p->data != -1)
-			printf("%d ",p->data);
+		printf("%d ",p->data);
 	}
 }
 
@@ -160,26 +162,33 @@ void levelorder(struct NODE *p)
 		
 		//LEFT CHILD
 		{
-			if(p->left->data != -1)
-				printf("%d ",p->left->data);
+			printf("%d ",p->left->data);
 				
 			enqueue(p->left);
 
-			if(p->left->data == -1)
-				dequeue();
+			dequeue();
 		}
 
 		//RIGHT CHILD
 		{
-			if(p->right->data != -1)	
-				printf("%d ",p->right->data);
+			printf("%d ",p->right->data);
 			
 			enqueue(p->right);
 
-			if(p->right->data == -1)
-			  dequeue();
+			dequeue();
 		}
 	}
+}
+
+int numberofnodes(struct NODE *root , int node)
+{
+	if(root)
+	{	
+		node =  numberofnodes(root->left, node+1);
+	    node =  numberofnodes(root->right, node+1);
+	}
+
+	return node;
 }
 
 void intialize_Queue()
